@@ -1,5 +1,6 @@
-package com.Example.roboguru.presentation.ui.number.component
+package com.Example.roboguru.presentation.ui.detailscreen.component
 
+import androidx.compose.runtime.Composable
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -21,7 +22,6 @@ import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
@@ -42,7 +42,7 @@ import ir.kaaveh.sdpcompose.sdp
 import ir.kaaveh.sdpcompose.ssp
 
 @Composable
-fun fillNumber(modifier: Modifier) {
+fun DetailBar(modifier: Modifier) {
     val blueGradient = Brush.linearGradient(
         colors = listOf(Color(0xff63A7D4), Color(0xffF295BE))
     )
@@ -55,101 +55,74 @@ fun fillNumber(modifier: Modifier) {
                 shape = RoundedCornerShape(topEnd = 20.sdp, topStart = 20.sdp)
             )
     ) {
+
+        Image(
+            painter = painterResource(R.drawable.robicon),
+            contentDescription = "",
+            modifier = Modifier
+                .align(Alignment.TopEnd)
+                .padding(top = 15.sdp)
+        )
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(top = 15.sdp, start = 15.sdp, end = 0.sdp)
+                .padding(top = 0.sdp, start = 15.sdp, end = 0.sdp),
         ) {
-            Text(
-                text = "Let’s Break", style = TextStyle(
-                    color = Color.Black,
-                    fontSize = 18.ssp,
-                    fontWeight = FontWeight.Bold,
-                ), textAlign = TextAlign.Center
-            )
-            Spacer(modifier = Modifier.padding(top = 5.sdp))
-            Text(
-                text = buildAnnotatedString {
-                    append("The Barrier’s\nof ")
-                    withStyle(
-                        style = SpanStyle(
-                            fontWeight = FontWeight.Bold, color = Color(0xFF63A7D4)
-                        )
-                    ) {
-                        append("Learning App")
-                    }
-                },
-                fontWeight = FontWeight.Bold,
-                color = Color(0xff000000),
-                fontSize = 17.ssp,
-                textAlign = TextAlign.Start,
-
-                )
-            Spacer(modifier = Modifier.padding(top = 20.sdp))
-            Image(painter = painterResource(R.drawable.dialicon), contentDescription = "",modifier=Modifier.size(115.sdp))
-            Box(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(200.sdp)
-            ) {
-                Column(modifier = Modifier.padding(top = 20.sdp)) {
-                    Spacer(modifier = Modifier.padding(top = 10.sdp))
-                    Text(
-                        text = "Enter Number\nMobile Number", style = TextStyle(
-                            color = Color.Black,
-                            fontSize = 18.ssp,
-                            fontWeight = FontWeight.Normal,
-                        ), textAlign = TextAlign.Start
-                    )
-                    Text(
-                        text = "We are always helping you!", style = TextStyle(
-                            color = Color(0xFF63A7D4),
-                            fontSize = 13.ssp,
-                            fontWeight = FontWeight.Normal,
-                        ), textAlign = TextAlign.Start,
-                        modifier = Modifier.padding(top = 10.sdp)
-                    )
-                    Text(
-                        text = "ENTER NUMBER", style = TextStyle(
-                            color = Color(0xFF000000),
-                            fontSize = 15.ssp,
-                            fontWeight = FontWeight.Normal,
-                        ), textAlign = TextAlign.Start,
-                        modifier = Modifier.padding(top = 15.sdp)
-                    )
-                    Box(
-                        modifier = Modifier
-                            .fillMaxSize()
-                            .padding(bottom = 13.sdp),
-                        contentAlignment = Alignment.BottomStart
-                    ) {
-                        CustomTextField()
-                    }
-                }
+            Box(modifier = Modifier.fillMaxWidth()) {
                 Image(
-                    painter = painterResource(R.drawable.robicon),
+                    painter = painterResource(R.drawable.addimg),
                     contentDescription = "",
                     modifier = Modifier
-                        .align(Alignment.TopEnd)
-                        .padding(bottom = 10.sdp)
+                        .padding(top = 5.sdp, end = 25.sdp)
+                        .size(135.sdp)
+                        .align(Alignment.Center)
                 )
+            }
+
+            Column(modifier = Modifier.padding(top = 20.sdp)) {
+                Spacer(modifier = Modifier.padding(top = 36.sdp))
+                Text(
+                    text = "Enter Name", style = TextStyle(
+                        color = Color.Black,
+                        fontSize = 14.ssp,
+                        fontWeight = FontWeight.Normal,
+                    ), textAlign = TextAlign.Start
+                )
+                Spacer(modifier = Modifier.padding(top = 13.sdp))
+                NameTextField()
+                Spacer(modifier = Modifier.padding(top = 15.sdp))
+                Text(
+                    text = "CHOOSE CLASS", style = TextStyle(
+                        color = Color.Black,
+                        fontSize = 14.ssp,
+                        fontWeight = FontWeight.Normal,
+                    ), textAlign = TextAlign.Start
+                )
+                Spacer(modifier = Modifier.padding(top = 13.sdp))
+                NameTextField()
+                Spacer(modifier = Modifier.padding(top = 15.sdp))
+                Text(
+                    text = "SELECT LANGUAGE", style = TextStyle(
+                        color = Color.Black,
+                        fontSize = 14.ssp,
+                        fontWeight = FontWeight.Normal,
+                    ), textAlign = TextAlign.Start
+                )
+                Spacer(modifier = Modifier.padding(top = 13.sdp))
+                NameTextField()
+                Spacer(modifier = Modifier.padding(top = 15.sdp))
+                Text(
+                    text = "EMAIL ID", style = TextStyle(
+                        color = Color.Black,
+                        fontSize = 14.ssp,
+                        fontWeight = FontWeight.Normal,
+                    ), textAlign = TextAlign.Start
+                )
+                Spacer(modifier = Modifier.padding(top = 13.sdp))
+                NameTextField()
+
             }
             Spacer(modifier = Modifier.padding(top = 15.sdp))
-            Button(
-                onClick = {
-                },
-                colors = ButtonDefaults.buttonColors(
-                    containerColor = Color.Transparent
-                ),
-                modifier = Modifier
-                    .padding(start = 5.sdp, end = 20.sdp)
-                    .size(width = 310.sdp, height = 43.sdp)
-                    .background(blueGradient, shape = RoundedCornerShape(30.sdp))
-            ) {
-                Text(
-                    text = "GET OTP", fontSize = 12.ssp, fontWeight = FontWeight.Bold
-                )
-            }
             Column(
                 modifier = Modifier.fillMaxSize(),
                 horizontalAlignment = Alignment.CenterHorizontally,
@@ -182,19 +155,17 @@ fun fillNumber(modifier: Modifier) {
                 )
             }
         }
-
     }
-
 }
 
 
 @Composable
-fun CustomTextField() {
+fun NameTextField() {
     val name = remember { mutableStateOf("") }
 
     Column(
         modifier = Modifier
-            .padding(start = 0.sdp, end = 80.sdp)
+            .padding(start = 0.sdp, end = 55.sdp)
     ) {
         Box(
             modifier = Modifier
@@ -202,24 +173,17 @@ fun CustomTextField() {
                 .padding(horizontal = 16.sdp)
         ) {
             BasicTextField(value = name.value,
-                onValueChange = {
-                    if (it.all { char -> char.isDigit() }) {
-                        name.value = it
-                    }
-                },
+                onValueChange = { name.value = it },
                 singleLine = true,
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(bottom = 2.sdp), // Padding above the line
+                    .padding(bottom = 8.sdp), // Padding above the line
                 textStyle = TextStyle(
                     color = Color(0xff000000),
-                    fontSize = 15.ssp,
-                    textAlign = TextAlign.Start
+                    fontSize = 14.ssp,
+                    textAlign = TextAlign.Center // Ensures text is centered
                 ),
                 cursorBrush = SolidColor(Color.Black),
-                keyboardOptions = KeyboardOptions(
-                    keyboardType = KeyboardType.Number // Numeric keyboard
-                ),
                 decorationBox = { innerTextField ->
                     Box(
                         modifier = Modifier.fillMaxWidth(),
@@ -227,8 +191,8 @@ fun CustomTextField() {
                     ) {
                         if (name.value.isEmpty()) {
                             Text(
-                                text = "+91 98xx xxx782", // Placeholder text
-                                style = TextStyle(color = Color(0xFF000000), fontSize = 15.ssp),
+                                text = "Name", // Placeholder text
+                                style = TextStyle(color = Color(0xFF000000), fontSize = 14.ssp),
                                 textAlign = TextAlign.Start
                             )
                         }
@@ -241,7 +205,7 @@ fun CustomTextField() {
             modifier = Modifier
                 .fillMaxWidth()
                 .height(1.sdp) // Thickness of the underline
-                .background(Color(0x773D3A3A)) // Color of the underline
+                .background(Color(0xFFA5A3A3)) // Color of the underline
         )
     }
 }

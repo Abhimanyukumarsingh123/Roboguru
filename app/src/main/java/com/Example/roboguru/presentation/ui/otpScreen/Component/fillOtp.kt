@@ -1,7 +1,8 @@
-package com.Example.roboguru.presentation.ui.number.component
+package com.Example.roboguru.presentation.ui.otpScreen.Component
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -37,12 +38,14 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.withStyle
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.Example.roboguru.R
 import ir.kaaveh.sdpcompose.sdp
 import ir.kaaveh.sdpcompose.ssp
 
 @Composable
-fun fillNumber(modifier: Modifier) {
+fun fillOtp(modifier: Modifier) {
     val blueGradient = Brush.linearGradient(
         colors = listOf(Color(0xff63A7D4), Color(0xffF295BE))
     )
@@ -86,7 +89,11 @@ fun fillNumber(modifier: Modifier) {
 
                 )
             Spacer(modifier = Modifier.padding(top = 20.sdp))
-            Image(painter = painterResource(R.drawable.dialicon), contentDescription = "",modifier=Modifier.size(115.sdp))
+            Image(
+                painter = painterResource(R.drawable.otpimg),
+                contentDescription = "",
+                modifier = Modifier.size(115.sdp)
+            )
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -102,7 +109,7 @@ fun fillNumber(modifier: Modifier) {
                         ), textAlign = TextAlign.Start
                     )
                     Text(
-                        text = "We are always helping you!", style = TextStyle(
+                        text = "+91 9572420215", style = TextStyle(
                             color = Color(0xFF63A7D4),
                             fontSize = 13.ssp,
                             fontWeight = FontWeight.Normal,
@@ -110,7 +117,7 @@ fun fillNumber(modifier: Modifier) {
                         modifier = Modifier.padding(top = 10.sdp)
                     )
                     Text(
-                        text = "ENTER NUMBER", style = TextStyle(
+                        text = "ENTER OTP", style = TextStyle(
                             color = Color(0xFF000000),
                             fontSize = 15.ssp,
                             fontWeight = FontWeight.Normal,
@@ -123,7 +130,7 @@ fun fillNumber(modifier: Modifier) {
                             .padding(bottom = 13.sdp),
                         contentAlignment = Alignment.BottomStart
                     ) {
-                        CustomTextField()
+                        OtpTextField()
                     }
                 }
                 Image(
@@ -147,7 +154,7 @@ fun fillNumber(modifier: Modifier) {
                     .background(blueGradient, shape = RoundedCornerShape(30.sdp))
             ) {
                 Text(
-                    text = "GET OTP", fontSize = 12.ssp, fontWeight = FontWeight.Bold
+                    text = "SUBMIT", fontSize = 12.ssp, fontWeight = FontWeight.Bold
                 )
             }
             Column(
@@ -189,59 +196,59 @@ fun fillNumber(modifier: Modifier) {
 
 
 @Composable
-fun CustomTextField() {
-    val name = remember { mutableStateOf("") }
-
-    Column(
+fun OtpTextField() {
+    val otp = remember { mutableStateOf("") }
+    val maxLength = 4
+    Row(
         modifier = Modifier
-            .padding(start = 0.sdp, end = 80.sdp)
+            .fillMaxWidth(0.57f),
+        horizontalArrangement = Arrangement.SpaceBetween
     ) {
-        Box(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(horizontal = 16.sdp)
-        ) {
-            BasicTextField(value = name.value,
-                onValueChange = {
-                    if (it.all { char -> char.isDigit() }) {
-                        name.value = it
-                    }
-                },
-                singleLine = true,
+        for (i in 0 until maxLength) {
+            Box(
                 modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(bottom = 2.sdp), // Padding above the line
-                textStyle = TextStyle(
-                    color = Color(0xff000000),
-                    fontSize = 15.ssp,
-                    textAlign = TextAlign.Start
-                ),
-                cursorBrush = SolidColor(Color.Black),
-                keyboardOptions = KeyboardOptions(
-                    keyboardType = KeyboardType.Number // Numeric keyboard
-                ),
-                decorationBox = { innerTextField ->
-                    Box(
-                        modifier = Modifier.fillMaxWidth(),
-                        contentAlignment = Alignment.CenterStart // Centers placeholder text
-                    ) {
-                        if (name.value.isEmpty()) {
-                            Text(
-                                text = "+91 98xx xxx782", // Placeholder text
-                                style = TextStyle(color = Color(0xFF000000), fontSize = 15.ssp),
-                                textAlign = TextAlign.Start
-                            )
-                        }
-                        innerTextField() // This is where the input text will be displayed
-                    }
-                })
+                    .size(34.sdp) // Size of each box
+                    .background(
+                        Color(0xFFE0E0E0),
+                        shape = RoundedCornerShape(1.sdp)
+                    ) // Box background
+                    .border(
+                        width = 1.sdp,
+                        color = if (i < otp.value.length) Color(0xffEAEAEA) else Color(0xffEAEAEA), // Active box border color
+                        shape = RoundedCornerShape(1.sdp)
+                    ),
+                contentAlignment = Alignment.Center
+            ) {
+                Text(
+                    text = otp.value.getOrNull(i)?.toString() ?: "", // Show digit if exists
+                    style = TextStyle(
+                        fontSize = 16.ssp,
+                        textAlign = TextAlign.Center,
+                        color = Color.Black
+                    )
+                )
+            }
         }
-        // This Spacer acts as the underline
-        Spacer(
-            modifier = Modifier
-                .fillMaxWidth()
-                .height(1.sdp) // Thickness of the underline
-                .background(Color(0x773D3A3A)) // Color of the underline
-        )
     }
+
+    BasicTextField(
+        value = otp.value,
+        onValueChange = {
+            if (it.length <= maxLength && it.all { char -> char.isDigit() }) {
+                otp.value = it
+            }
+        },
+        keyboardOptions = KeyboardOptions(
+            keyboardType = KeyboardType.Number // Numeric keyboard
+        ),
+        cursorBrush = SolidColor(Color.Transparent), // Hide cursor
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(top = 8.sdp) // Add spacing from the boxes
+            .background(Color.Transparent), // Transparent background
+        decorationBox = { innerTextField ->
+            // Invisible container for proper interaction
+
+        }
+    )
 }

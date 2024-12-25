@@ -7,3 +7,16 @@ data class TrendingItem(
     val subject: String
 
 )
+
+
+data class TopicItem(
+    val chapter: String,
+    val time: String,
+    val topicName: String,
+    val Colorabc: Int // Adding color property
+)
+
+data class QuestionItem(
+    val question: String,
+    val number:String
+)
