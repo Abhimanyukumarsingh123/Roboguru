@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.Scaffold
 import androidx.compose.ui.Modifier
 import com.Example.roboguru.presentation.ui.chapter.ChapterScreen
+import com.Example.roboguru.presentation.ui.chat.ChatScreen
 import com.Example.roboguru.presentation.ui.detailscreen.DetailScreen
 import com.Example.roboguru.presentation.ui.home.HomeScreen
 import com.Example.roboguru.presentation.ui.number.NumberScreen
@@ -23,7 +24,7 @@ class MainActivity : ComponentActivity() {
             ROBOGURUTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                    innerPadding
-                    ChapterScreen()
+                    ChatScreen()
                 }
             }
         }

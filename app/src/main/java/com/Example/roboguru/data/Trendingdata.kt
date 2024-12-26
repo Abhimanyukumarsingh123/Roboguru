@@ -20,3 +20,7 @@ data class QuestionItem(
     val question: String,
     val number:String
 )
+
+data class suggestionQueItem(
+    val SuggQue: String
+)

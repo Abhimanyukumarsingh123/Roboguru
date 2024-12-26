@@ -117,7 +117,7 @@ fun MainChatBox(Chapter: String, topicName: String, timeH: String, Colordata: In
     Card(
         modifier = Modifier
             .padding(bottom = 10.sdp, start = 20.sdp, end = 20.sdp)
-            .height(80.sdp)
+            .height(70.sdp)
             .fillMaxWidth(),
         shape = RoundedCornerShape(20.dp),
         colors = CardDefaults.cardColors(containerColor = Color.Transparent)
@@ -147,19 +147,19 @@ fun MainChatBox(Chapter: String, topicName: String, timeH: String, Colordata: In
             ) {
 
                 Row(modifier = Modifier.fillMaxWidth()) {
-                    Spacer(modifier = Modifier.padding(start = 5.sdp, top = 5.sdp))
+                    Spacer(modifier = Modifier.padding(start = 5.sdp, top = 4.sdp))
                     Image(
                         painter = painterResource(
                             id = R.drawable.abcimg,
                         ),
                         contentDescription = "",
-                        modifier = Modifier.size(12.sdp)
+                        modifier = Modifier.padding(top = 3.sdp).size(10.sdp)
                     )
                     Spacer(modifier = Modifier.padding(start = 5.sdp))
                     Text(
                         text = Chapter,
                         color = Color.Black,
-                        fontSize = 14.ssp,
+                        fontSize = 12.ssp,
                         textAlign = TextAlign.Start,
                         fontWeight = FontWeight.Normal,
                         fontStyle = FontStyle.Italic, // Set text style to italic
@@ -179,19 +179,19 @@ fun MainChatBox(Chapter: String, topicName: String, timeH: String, Colordata: In
                 Text(
                     text = topicName,
                     color = Color.Black,
-                    fontSize = 14.ssp,
+                    fontSize = 12.ssp,
                     modifier = Modifier
                         .padding(start = 7.sdp, end = 5.sdp),
                     textAlign = TextAlign.Start,
                     maxLines = 1,
                     overflow = TextOverflow.Ellipsis
                 )
-                Spacer(modifier = Modifier.padding(top = 5.sdp))
+                Spacer(modifier = Modifier.padding(top = 3.sdp))
                 Text(
                     text = "Get Solution Now >>",
                     style = TextStyle(
                         brush = blueGradient1,
-                        fontSize = 14.ssp,
+                        fontSize = 12.ssp,
                         textAlign = TextAlign.Start
                     ),
                     modifier = Modifier

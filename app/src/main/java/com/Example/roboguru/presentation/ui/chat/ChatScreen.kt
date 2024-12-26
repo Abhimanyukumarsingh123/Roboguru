@@ -1,4 +1,4 @@
-package com.Example.roboguru.presentation.ui.chapter
+package com.Example.roboguru.presentation.ui.chat
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box
@@ -14,11 +14,13 @@ import androidx.compose.ui.res.painterResource
 import com.Example.roboguru.R
 import com.Example.roboguru.presentation.ui.chapter.component.ChapterTopBar
 import com.Example.roboguru.presentation.ui.chapter.component.TopicBox
+import com.Example.roboguru.presentation.ui.chat.component.Chat
+import com.Example.roboguru.presentation.ui.chat.component.ChatTopBar
 import com.Example.roboguru.presentation.ui.subject.component.SubjectTopBar
 import com.Example.roboguru.presentation.ui.subject.component.CHapterBox
 
 @Composable
-fun ChapterScreen(){
+fun ChatScreen(){
     Box(
         modifier = Modifier
             .statusBarsPadding()
@@ -34,13 +36,13 @@ fun ChapterScreen(){
             modifier = Modifier
                 .fillMaxSize()
         ) {
-            ChapterTopBar(
+            ChatTopBar(
                 modifier = Modifier
                     .fillMaxHeight()
                     .fillMaxWidth()
                     .weight(.21f)
             )
-            TopicBox(
+            Chat(
                 modifier = Modifier
                     .fillMaxHeight()
                     .fillMaxWidth()

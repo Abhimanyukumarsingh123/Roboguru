@@ -63,10 +63,10 @@ fun ChapterTopBar(modifier: Modifier) {
                 modifier = Modifier.size(30.sdp)
             )
         }
-        Spacer(modifier = Modifier.padding(top = 20.sdp))
+        Spacer(modifier = Modifier.padding(top = 8.sdp))
         Column(
             modifier = Modifier.fillMaxWidth()
-                .height(70.sdp)
+                .height(55.sdp)
                 .background(color = Color(0x33000000)),
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center
@@ -75,13 +75,13 @@ fun ChapterTopBar(modifier: Modifier) {
             Text(
                 text = "Introduction to Euclid’s Geometry", style = TextStyle(
                     color = Color.White,
-                    fontSize = 16.ssp,
+                    fontSize = 15.ssp,
                 ), textAlign = TextAlign.Center
             )
             Text(
                 text = "Explore Key Concepts in This Chapter", style = TextStyle(
                     color = Color.White,
-                    fontSize = 13.ssp,
+                    fontSize = 11.ssp,
                 ), textAlign = TextAlign.Center
             )
         }

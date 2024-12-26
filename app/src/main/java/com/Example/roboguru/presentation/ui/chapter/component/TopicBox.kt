@@ -1,8 +1,10 @@
 package com.Example.roboguru.presentation.ui.chapter.component
 
+import android.widget.Space
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -40,6 +42,15 @@ import com.Example.roboguru.data.gerQuestion
 import ir.kaaveh.sdpcompose.sdp
 import ir.kaaveh.sdpcompose.ssp
 
+import androidx.compose.foundation.border
+import androidx.compose.foundation.layout.*
+import androidx.compose.material.*
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
+
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
+
 @Composable
 fun TopicBox(modifier: Modifier) {
 
@@ -53,8 +64,7 @@ fun TopicBox(modifier: Modifier) {
             )
     ) {
         Column(
-            modifier = Modifier
-                .fillMaxSize()
+            modifier = Modifier.fillMaxSize()
         ) {
             question(modifier)
         }
@@ -71,8 +81,7 @@ fun question(modifier: Modifier) {
     ) {
         items(QuestionItem) { questionItem ->
             MainChatBox(
-                question = questionItem.question,
-                Number = questionItem.number
+                question = questionItem.question, Number = questionItem.number
             )
         }
     }
@@ -86,10 +95,10 @@ fun MainChatBox(question: String, Number: String) {
         Card(
             modifier = Modifier
                 .padding(top = 15.sdp, start = 15.sdp)
-                .height(150.sdp)
+                .height(155.sdp)
                 .width(100.sdp),
             shape = RoundedCornerShape(20.dp),
-            colors = CardDefaults.cardColors(containerColor = Color(0xffD9D9D9))
+            colors = CardDefaults.cardColors(containerColor = Color(0xffF4F4F4))
         ) {
 
 
@@ -105,43 +114,99 @@ fun MainChatBox(question: String, Number: String) {
             ) {
                 Text(
                     text = Number,
-                    color = Color.Black,
-                    fontSize = 15.ssp,
+                    color = Color(0x33000000),
+                    fontSize = 18.ssp,
                     textAlign = TextAlign.Start,
                     fontWeight = FontWeight.Bold,
                     modifier = Modifier.padding(4.dp) // Optional padding
                 )
-
+                Spacer(modifier = Modifier.padding(top = 30.sdp))
+                Image(
+                    painter = painterResource(
+                        id = R.drawable.arrowicon,
+                    ),
+                    contentDescription = "",
+                    modifier = Modifier
+                    .padding(start = 20.sdp) .
+                        size(25.sdp)
+                )
             }
         }
         Box(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(top = 50.sdp),
-            contentAlignment = Alignment.Center
+                .padding(top = 50.sdp, start = 90.sdp),
+            contentAlignment = Alignment.CenterStart
         ) {
             Text(
                 text = question,
-                color = Color.Black,
-                fontSize = 14.ssp,
+                color = Color(0xff5C5C5C),
+                fontSize = 16.ssp,
                 textAlign = TextAlign.Start,
-                fontWeight = FontWeight.Bold,
+                fontWeight = FontWeight.Normal,
             )
-            Row (modifier = Modifier.align(Alignment.BottomEnd)){
-                Text(
-                    text = "Hrllo",
-                    color = Color.Black,
-                    fontSize = 14.ssp,
-                    textAlign = TextAlign.Start,
-                    fontWeight = FontWeight.Bold,
+        }
+        Row(
+            modifier = Modifier
+                .padding(end = 10.sdp, bottom = 10.sdp)
+                .align(Alignment.BottomEnd),
+            horizontalArrangement = Arrangement.SpaceBetween
+        ) {
+            Button(
+                onClick = { /* Handle Chat button click */ },
+                colors = ButtonDefaults.buttonColors(containerColor = Color.Transparent),
+                modifier = Modifier
+                    .border(
+                    1.sdp,
+                    Color(0xff63A7D4),
+                    shape = RoundedCornerShape(7.sdp)
                 )
-                Text(
-                    text = "sdfmnf",
-                    color = Color.Black,
-                    fontSize = 14.ssp,
-                    textAlign = TextAlign.Start,
-                    fontWeight = FontWeight.Bold,
+            ) {
+                Row {
+                    Image(
+                        painter = painterResource(
+                            id = R.drawable.chaticon,
+                        ),
+                        contentDescription = "",
+                        modifier = Modifier.size(13.sdp)
+                    )
+                    Spacer(modifier = Modifier.padding(start = 4.sdp))
+                    Text(
+                        text = "Chat",
+                        color = Color.Black,
+                        fontSize = 11.ssp,
+                        textAlign = TextAlign.Start,
+                        fontWeight = FontWeight.Normal
+                    )
+                }
+            }
+            Spacer(modifier = Modifier.width(8.sdp)) // Optional spacing between buttons
+            Button(
+                onClick = { /* Handle Voice button click */ },
+                colors = ButtonDefaults.buttonColors(containerColor = Color.Transparent),
+                modifier = Modifier.border(
+                    1.sdp,
+                    Color(0xff63A7D4),
+                    shape = RoundedCornerShape(7.sdp)
                 )
+            ) {
+                Row {
+                    Image(
+                        painter = painterResource(
+                            id = R.drawable.pikeicon,
+                        ),
+                        contentDescription = "",
+                        modifier = Modifier.size(13.sdp)
+                    )
+                    Spacer(modifier = Modifier.padding(start = 3.sdp))
+                    Text(
+                        text = "Voice",
+                        color = Color.Black,
+                        fontSize = 11.ssp,
+                        textAlign = TextAlign.Start,
+                        fontWeight = FontWeight.Normal
+                    )
+                }
             }
         }
     }

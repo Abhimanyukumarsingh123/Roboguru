@@ -36,7 +36,7 @@ fun SubjectScreen() {
                 modifier = Modifier
                     .fillMaxHeight()
                     .fillMaxWidth()
-                    .weight(.25f)
+                    .weight(.21f)
             )
             CHapterBox(
                 modifier = Modifier
