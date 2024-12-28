@@ -28,6 +28,7 @@ import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.Example.roboguru.R
 import com.Example.roboguru.data.ChatMesssage
 import ir.kaaveh.sdpcompose.sdp
 import ir.kaaveh.sdpcompose.ssp
@@ -35,7 +36,7 @@ import ir.kaaveh.sdpcompose.ssp
 @Composable
 fun MessageBox(message: ChatMesssage) {
     // Access the isMe property correctly from the message object
-    val textColor = if (message.isMe) Color.White else Color.Black
+    val textColor = if (message.isMe) Color.White else Color(0xCC000000)
 
     val backgroundModifier = if (message.isMe) {
         Modifier
@@ -92,7 +93,8 @@ fun MessageBox(message: ChatMesssage) {
                             style = TextStyle(
                                 color = textColor, // Use the dynamic text color
                                 fontSize = 13.ssp,
-                            )
+                            ),
+                            fontFamily = FontFamily(Font(R.font.ralsemibo))
                         )
                         Spacer(modifier = Modifier.height(7.sdp))
 
@@ -104,7 +106,8 @@ fun MessageBox(message: ChatMesssage) {
                         color = Color.Gray,
                         fontSize = 9.ssp,
                     ),
-                    modifier = Modifier
+                    fontFamily = FontFamily(Font(R.font.ralsemibo)),
+                            modifier = Modifier
                         .padding(horizontal = 8.sdp)
                         .align(if (message.isMe) Alignment.End else Alignment.Start) // Dynamic alignment
                 )

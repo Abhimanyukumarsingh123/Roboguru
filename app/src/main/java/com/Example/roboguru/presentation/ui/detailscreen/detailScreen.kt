@@ -13,6 +13,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import com.Example.roboguru.R
 import com.Example.roboguru.presentation.ui.detailscreen.component.DetailBar
+import com.Example.roboguru.presentation.ui.detailscreen.component.DetailsTopBar
 import com.Example.roboguru.presentation.ui.number.component.NumberTopBar
 import com.Example.roboguru.presentation.ui.number.component.fillNumber
 
@@ -33,7 +34,7 @@ fun DetailScreen(){
             modifier = Modifier
                 .fillMaxSize()
         ) {
-            NumberTopBar(
+            DetailsTopBar(
                 modifier = Modifier
                     .fillMaxHeight()
                     .fillMaxWidth()

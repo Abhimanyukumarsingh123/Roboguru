@@ -38,7 +38,7 @@ fun ChapterScreen(){
                 modifier = Modifier
                     .fillMaxHeight()
                     .fillMaxWidth()
-                    .weight(.21f)
+                    .weight(.2f)
             )
             TopicBox(
                 modifier = Modifier

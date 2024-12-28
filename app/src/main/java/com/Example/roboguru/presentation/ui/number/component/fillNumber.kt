@@ -33,6 +33,8 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.buildAnnotatedString
+import androidx.compose.ui.text.font.Font
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextAlign
@@ -65,7 +67,8 @@ fun fillNumber(modifier: Modifier) {
                     color = Color.Black,
                     fontSize = 18.ssp,
                     fontWeight = FontWeight.Bold,
-                ), textAlign = TextAlign.Center
+                ), textAlign = TextAlign.Center,
+                fontFamily = FontFamily(Font(R.font.itlicotp))
             )
             Spacer(modifier = Modifier.padding(top = 5.sdp))
             Text(
@@ -73,20 +76,27 @@ fun fillNumber(modifier: Modifier) {
                     append("The Barrier’s\nof ")
                     withStyle(
                         style = SpanStyle(
-                            fontWeight = FontWeight.Bold, color = Color(0xFF63A7D4)
+                            fontWeight = FontWeight.Bold,
+                            color = Color(0xFF63A7D4),
+                            fontFamily = FontFamily(Font(R.font.notesamibold))
                         )
                     ) {
                         append("Learning App")
                     }
                 },
+                fontFamily = FontFamily(Font(R.font.notesamibold)),
                 fontWeight = FontWeight.Bold,
                 color = Color(0xff000000),
-                fontSize = 17.ssp,
+                fontSize = 22.ssp,
                 textAlign = TextAlign.Start,
 
                 )
             Spacer(modifier = Modifier.padding(top = 20.sdp))
-            Image(painter = painterResource(R.drawable.dialicon), contentDescription = "",modifier=Modifier.size(115.sdp))
+            Image(
+                painter = painterResource(R.drawable.dialicon),
+                contentDescription = "",
+                modifier = Modifier.size(115.sdp)
+            )
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -95,11 +105,12 @@ fun fillNumber(modifier: Modifier) {
                 Column(modifier = Modifier.padding(top = 20.sdp)) {
                     Spacer(modifier = Modifier.padding(top = 10.sdp))
                     Text(
-                        text = "Enter Number\nMobile Number", style = TextStyle(
+                        text = "Enter Your\nMobile Number", style = TextStyle(
                             color = Color.Black,
                             fontSize = 18.ssp,
                             fontWeight = FontWeight.Normal,
-                        ), textAlign = TextAlign.Start
+                        ), textAlign = TextAlign.Start,
+                        fontFamily = FontFamily(Font(R.font.medium))
                     )
                     Text(
                         text = "We are always helping you!", style = TextStyle(
@@ -107,15 +118,17 @@ fun fillNumber(modifier: Modifier) {
                             fontSize = 13.ssp,
                             fontWeight = FontWeight.Normal,
                         ), textAlign = TextAlign.Start,
-                        modifier = Modifier.padding(top = 10.sdp)
+                        modifier = Modifier.padding(top = 10.sdp),
+                        fontFamily = FontFamily(Font(R.font.medium))
                     )
                     Text(
-                        text = "ENTER NUMBER", style = TextStyle(
-                            color = Color(0xFF000000),
-                            fontSize = 15.ssp,
-                            fontWeight = FontWeight.Normal,
+                        text = "E N T E R  N U M B E R", style = TextStyle(
+                            color = Color(0x99000000),
+                            fontSize = 11.ssp,
                         ), textAlign = TextAlign.Start,
-                        modifier = Modifier.padding(top = 15.sdp)
+                        modifier = Modifier.padding(top = 15.sdp),
+                        fontFamily = FontFamily(Font(R.font.medium))
+
                     )
                     Box(
                         modifier = Modifier
@@ -147,7 +160,9 @@ fun fillNumber(modifier: Modifier) {
                     .background(blueGradient, shape = RoundedCornerShape(30.sdp))
             ) {
                 Text(
-                    text = "GET OTP", fontSize = 12.ssp, fontWeight = FontWeight.Bold
+                    text = "GET OTP",
+                    fontSize = 12.ssp,
+                    fontFamily = FontFamily(Font(R.font.medium))
                 )
             }
             Column(
@@ -161,12 +176,15 @@ fun fillNumber(modifier: Modifier) {
                         withStyle(
                             style = SpanStyle(
                                 fontWeight = FontWeight.Normal,
-                                color = Color(0xFF0074D6)
-                            )
-                        ) {
+                                color = Color(0xFF0074D6),
+                                fontFamily = FontFamily(Font(R.font.medium))
+                            ),
+
+                            ) {
                             append("ERAM LABS")
                         }
                     },
+                    fontFamily = FontFamily(Font(R.font.medium)),
                     modifier = Modifier.padding(bottom = 0.sdp),
                     color = Color(0xFF878787),
                     fontSize = 10.ssp,
@@ -214,7 +232,8 @@ fun CustomTextField() {
                 textStyle = TextStyle(
                     color = Color(0xff000000),
                     fontSize = 15.ssp,
-                    textAlign = TextAlign.Start
+                    textAlign = TextAlign.Start,
+                    fontFamily = FontFamily(Font(R.font.medium))
                 ),
                 cursorBrush = SolidColor(Color.Black),
                 keyboardOptions = KeyboardOptions(
@@ -229,7 +248,9 @@ fun CustomTextField() {
                             Text(
                                 text = "+91 98xx xxx782", // Placeholder text
                                 style = TextStyle(color = Color(0xFF000000), fontSize = 15.ssp),
-                                textAlign = TextAlign.Start
+                                textAlign = TextAlign.Start,
+                                fontFamily = FontFamily(Font(R.font.medium))
+
                             )
                         }
                         innerTextField() // This is where the input text will be displayed

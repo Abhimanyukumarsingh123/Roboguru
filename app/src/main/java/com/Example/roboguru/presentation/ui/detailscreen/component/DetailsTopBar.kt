@@ -1,4 +1,4 @@
-package com.Example.roboguru.presentation.ui.number.component
+package com.Example.roboguru.presentation.ui.detailscreen.component
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -21,7 +21,7 @@ import ir.kaaveh.sdpcompose.sdp
 import ir.kaaveh.sdpcompose.ssp
 
 @Composable
-fun NumberTopBar(modifier: Modifier) {
+fun DetailsTopBar(modifier: Modifier) {
     Box(
         modifier = modifier
             .fillMaxSize()

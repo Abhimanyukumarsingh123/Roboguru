@@ -27,6 +27,8 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.buildAnnotatedString
+import androidx.compose.ui.text.font.Font
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -68,13 +70,24 @@ fun CHapterBox(modifier: Modifier) {
                 )
                 Text(
                     text = buildAnnotatedString {
-                        append("Choose ")
-                        withStyle(style = SpanStyle(fontWeight = FontWeight.Normal)) {
+                        withStyle(
+                            style = SpanStyle(
+                                fontWeight = FontWeight.Bold,
+                                fontFamily = FontFamily(Font(R.font.ralextbold)),
+                            )
+                        ) {
+                            append("Choose ")
+                        }
+                        withStyle(
+                            style = SpanStyle(
+                                fontWeight = FontWeight.Normal,
+                                fontFamily = FontFamily(Font(R.font.ralsemibo))
+                            )
+                        ) {
                             append("a Topic to Dive In")
                         }
                     },
                     modifier = Modifier.padding(bottom = 0.sdp, top = 20.sdp),
-                    fontWeight = FontWeight.Bold,
                     color = Color(0xFF000000),
                     fontSize = 16.ssp,
                     textAlign = TextAlign.Center,
@@ -153,7 +166,9 @@ fun MainChatBox(Chapter: String, topicName: String, timeH: String, Colordata: In
                             id = R.drawable.abcimg,
                         ),
                         contentDescription = "",
-                        modifier = Modifier.padding(top = 3.sdp).size(10.sdp)
+                        modifier = Modifier
+                            .padding(top = 3.sdp)
+                            .size(10.sdp)
                     )
                     Spacer(modifier = Modifier.padding(start = 5.sdp))
                     Text(
@@ -163,8 +178,8 @@ fun MainChatBox(Chapter: String, topicName: String, timeH: String, Colordata: In
                         textAlign = TextAlign.Start,
                         fontWeight = FontWeight.Normal,
                         fontStyle = FontStyle.Italic, // Set text style to italic
-                        modifier = Modifier.weight(1f) // Push the icon to the end
-
+                        modifier = Modifier.weight(1f), // Push the icon to the end
+                        fontFamily = FontFamily(Font(R.font.ralsemibo))
                     )
                     Text(
                         text = timeH,
@@ -173,6 +188,8 @@ fun MainChatBox(Chapter: String, topicName: String, timeH: String, Colordata: In
                         modifier = Modifier
                             .padding(end = 20.sdp),
                         textAlign = TextAlign.End,
+                        fontFamily = FontFamily(Font(R.font.ralsemibo))
+
                     )
 
                 }
@@ -184,7 +201,9 @@ fun MainChatBox(Chapter: String, topicName: String, timeH: String, Colordata: In
                         .padding(start = 7.sdp, end = 5.sdp),
                     textAlign = TextAlign.Start,
                     maxLines = 1,
-                    overflow = TextOverflow.Ellipsis
+                    overflow = TextOverflow.Ellipsis,
+                    fontFamily = FontFamily(Font(R.font.ralbold))
+
                 )
                 Spacer(modifier = Modifier.padding(top = 3.sdp))
                 Text(
@@ -194,6 +213,7 @@ fun MainChatBox(Chapter: String, topicName: String, timeH: String, Colordata: In
                         fontSize = 12.ssp,
                         textAlign = TextAlign.Start
                     ),
+                    fontFamily = FontFamily(Font(R.font.ralsemibo)),
                     modifier = Modifier
                         .padding(start = 7.sdp, end = 5.sdp)
                         .clickable { /* Handle click here */ }

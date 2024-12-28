@@ -40,7 +40,7 @@ fun ChatScreen(){
                 modifier = Modifier
                     .fillMaxHeight()
                     .fillMaxWidth()
-                    .weight(.21f)
+                    .weight(.2f)
             )
             Chat(
                 modifier = Modifier

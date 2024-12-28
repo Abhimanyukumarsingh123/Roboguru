@@ -34,6 +34,8 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.buildAnnotatedString
+import androidx.compose.ui.text.font.Font
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextAlign
@@ -68,7 +70,9 @@ fun fillOtp(modifier: Modifier) {
                     color = Color.Black,
                     fontSize = 18.ssp,
                     fontWeight = FontWeight.Bold,
-                ), textAlign = TextAlign.Center
+                ), textAlign = TextAlign.Center,
+                fontFamily = FontFamily(Font(R.font.itlicotp))
+
             )
             Spacer(modifier = Modifier.padding(top = 5.sdp))
             Text(
@@ -76,12 +80,15 @@ fun fillOtp(modifier: Modifier) {
                     append("The Barrier’s\nof ")
                     withStyle(
                         style = SpanStyle(
-                            fontWeight = FontWeight.Bold, color = Color(0xFF63A7D4)
+                            fontWeight = FontWeight.Bold, color = Color(0xFF63A7D4),
+                            fontFamily = FontFamily(Font(R.font.notesamibold))
+
                         )
                     ) {
                         append("Learning App")
                     }
                 },
+                fontFamily = FontFamily(Font(R.font.notesamibold)),
                 fontWeight = FontWeight.Bold,
                 color = Color(0xff000000),
                 fontSize = 17.ssp,
@@ -102,11 +109,13 @@ fun fillOtp(modifier: Modifier) {
                 Column(modifier = Modifier.padding(top = 20.sdp)) {
                     Spacer(modifier = Modifier.padding(top = 10.sdp))
                     Text(
-                        text = "Enter Number\nMobile Number", style = TextStyle(
+                        text = "very Your\nMobile Number", style = TextStyle(
                             color = Color.Black,
                             fontSize = 18.ssp,
                             fontWeight = FontWeight.Normal,
-                        ), textAlign = TextAlign.Start
+                        ), textAlign = TextAlign.Start,
+                        fontFamily = FontFamily(Font(R.font.medium))
+
                     )
                     Text(
                         text = "+91 9572420215", style = TextStyle(
@@ -114,14 +123,16 @@ fun fillOtp(modifier: Modifier) {
                             fontSize = 13.ssp,
                             fontWeight = FontWeight.Normal,
                         ), textAlign = TextAlign.Start,
+                        fontFamily = FontFamily(Font(R.font.medium)),
                         modifier = Modifier.padding(top = 10.sdp)
                     )
                     Text(
-                        text = "ENTER OTP", style = TextStyle(
-                            color = Color(0xFF000000),
-                            fontSize = 15.ssp,
+                        text = "E N T E R  O T P", style = TextStyle(
+                            color = Color(0x99000000),
+                            fontSize = 11.ssp,
                             fontWeight = FontWeight.Normal,
                         ), textAlign = TextAlign.Start,
+                        fontFamily = FontFamily(Font(R.font.medium)),
                         modifier = Modifier.padding(top = 15.sdp)
                     )
                     Box(
@@ -154,7 +165,9 @@ fun fillOtp(modifier: Modifier) {
                     .background(blueGradient, shape = RoundedCornerShape(30.sdp))
             ) {
                 Text(
-                    text = "SUBMIT", fontSize = 12.ssp, fontWeight = FontWeight.Bold
+                    text = "SUBMIT", fontSize = 12.ssp,
+                    fontFamily = FontFamily(Font(R.font.medium))
+
                 )
             }
             Column(
@@ -168,12 +181,14 @@ fun fillOtp(modifier: Modifier) {
                         withStyle(
                             style = SpanStyle(
                                 fontWeight = FontWeight.Normal,
-                                color = Color(0xFF0074D6)
+                                color = Color(0xFF0074D6),
+                                fontFamily = FontFamily(Font(R.font.medium))
                             )
                         ) {
                             append("ERAM LABS")
                         }
                     },
+                    fontFamily = FontFamily(Font(R.font.medium)),
                     modifier = Modifier.padding(bottom = 0.sdp),
                     color = Color(0xFF878787),
                     fontSize = 10.ssp,
@@ -185,7 +200,10 @@ fun fillOtp(modifier: Modifier) {
                     style = TextStyle(
                         color = Color(0xff878787), fontSize = 10.ssp,
                     ),
-                    textAlign = TextAlign.Center
+                    textAlign = TextAlign.Center,
+                    fontFamily = FontFamily(Font(R.font.medium))
+
+
                 )
             }
         }
@@ -224,7 +242,8 @@ fun OtpTextField() {
                     style = TextStyle(
                         fontSize = 16.ssp,
                         textAlign = TextAlign.Center,
-                        color = Color.Black
+                        color = Color.Black,
+                        fontWeight = FontWeight.Bold,
                     )
                 )
             }

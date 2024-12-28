@@ -47,6 +47,8 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.material.*
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.ui.text.font.Font
+import androidx.compose.ui.text.font.FontFamily
 
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -115,11 +117,11 @@ fun MainChatBox(question: String, Number: String) {
                 Text(
                     text = Number,
                     color = Color(0x33000000),
-                    fontSize = 18.ssp,
+                    fontSize = 20.ssp,
                     textAlign = TextAlign.Start,
-                    fontWeight = FontWeight.Bold,
-                    modifier = Modifier.padding(4.dp) // Optional padding
-                )
+                    modifier = Modifier.padding(4.dp), // Optional padding
+                    fontFamily = FontFamily(Font(R.font.ralbold)),
+                    )
                 Spacer(modifier = Modifier.padding(top = 30.sdp))
                 Image(
                     painter = painterResource(
@@ -144,6 +146,7 @@ fun MainChatBox(question: String, Number: String) {
                 fontSize = 16.ssp,
                 textAlign = TextAlign.Start,
                 fontWeight = FontWeight.Normal,
+                fontFamily = FontFamily(Font(R.font.ralsemibo))
             )
         }
         Row(
@@ -176,7 +179,8 @@ fun MainChatBox(question: String, Number: String) {
                         color = Color.Black,
                         fontSize = 11.ssp,
                         textAlign = TextAlign.Start,
-                        fontWeight = FontWeight.Normal
+                        fontWeight = FontWeight.Normal,
+                        fontFamily = FontFamily(Font(R.font.ralsemibo))
                     )
                 }
             }
@@ -204,7 +208,8 @@ fun MainChatBox(question: String, Number: String) {
                         color = Color.Black,
                         fontSize = 11.ssp,
                         textAlign = TextAlign.Start,
-                        fontWeight = FontWeight.Normal
+                        fontWeight = FontWeight.Normal,
+                        fontFamily = FontFamily(Font(R.font.ralsemibo))
                     )
                 }
             }

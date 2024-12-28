@@ -36,13 +36,13 @@ fun HomeScreen() {
                 modifier = Modifier
                     .fillMaxHeight()
                     .fillMaxWidth()
-                    .weight(.3f)
+                    .weight(.24f)
             )
             ClassBox(
                 modifier = Modifier
                     .fillMaxHeight()
                     .fillMaxWidth()
-                    .weight(.8f)
+                    .weight(.76f)
             )
         }
     }

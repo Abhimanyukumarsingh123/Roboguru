@@ -19,6 +19,8 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.Font
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
@@ -63,6 +65,7 @@ fun MessageInputField() {
         textStyle = TextStyle(
             color = Color(0x80000000),
             fontSize = 13.ssp,
+            fontFamily = FontFamily(Font(R.font.ralsemibo))
         ),
         placeholder = {
             Row(
@@ -80,7 +83,8 @@ fun MessageInputField() {
                     style = TextStyle(
                         color = Color(0x80000000),
                         fontSize = 13.ssp,
-                    )
+                    ),
+                    fontFamily = FontFamily(Font(R.font.ralsemibo))
                 )
             }
         },
@@ -125,9 +129,10 @@ fun QuestionBox(question1: String) {
     Text(
         text = question1,
         style = TextStyle(
-            color = Color(0xFF000000),
+            color = Color(0xCC000000),
             fontSize = 12.ssp
         ),
+        fontFamily = FontFamily(Font(R.font.ralsemibo)),
         modifier = Modifier
             .clip(RoundedCornerShape(7.sdp))
             .background(Color(0x3363A7D4))

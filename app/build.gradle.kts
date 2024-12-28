@@ -59,4 +59,19 @@ dependencies {
 
     implementation ("com.github.Kaaveh:sdp-compose:1.1.0")
 
+    implementation ("androidx.compose.material:material:1.5.1") // Or latest version
+    implementation ("androidx.compose.ui:ui:1.5.1")
+    implementation ("androidx.compose.foundation:foundation:1.5.1")
+
+    implementation ("androidx.compose.runtime:runtime:1.5.1")
+
+    implementation ("com.intuit.sdp:sdp-android:1.1.0")
+    implementation ("com.intuit.ssp:ssp-android:1.1.0")
+
+
+    implementation ("com.google.accompanist:accompanist-pager:0.13.0")
+    implementation ("com.google.accompanist:accompanist-pager-indicators:0.13.0")
+    implementation ("androidx.core:core-splashscreen:1.0.1")
+    implementation ("androidx.navigation:navigation-compose:2.7.2")
+
 }

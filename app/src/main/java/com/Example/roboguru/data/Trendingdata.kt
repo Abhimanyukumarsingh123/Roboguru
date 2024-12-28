@@ -24,3 +24,8 @@ data class QuestionItem(
 data class suggestionQueItem(
     val SuggQue: String
 )
+
+data class HomeSubjectItem(
+    val cardResId: Int,
+    val description:String
+)
