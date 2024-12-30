@@ -13,6 +13,7 @@ import com.Example.roboguru.presentation.ui.detailscreen.DetailScreen
 import com.Example.roboguru.presentation.ui.home.HomeScreen
 import com.Example.roboguru.presentation.ui.number.NumberScreen
 import com.Example.roboguru.presentation.ui.otpScreen.OtpScreen
+import com.Example.roboguru.presentation.ui.startup1.StartupScreen1
 import com.Example.roboguru.presentation.ui.subject.SubjectScreen
 import com.Example.roboguru.ui.theme.ROBOGURUTheme
 
@@ -24,7 +25,7 @@ class MainActivity : ComponentActivity() {
             ROBOGURUTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                    innerPadding
-                    HomeScreen()
+                    DetailScreen()
                 }
             }
         }
