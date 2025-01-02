@@ -4,6 +4,8 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -29,6 +31,9 @@ import ir.kaaveh.sdpcompose.ssp
 fun StartupScreen2() {
     val blueGradient = Brush.horizontalGradient(
         colors = listOf(Color(0xff63A7D4), Color(0xffF295BE))
+    )
+    val blueGradientbutton = Brush.verticalGradient(
+        colors = listOf(Color(0xffF295BE), Color(0xff5A99C4))
     )
     Box(
         modifier = Modifier
@@ -145,6 +150,42 @@ fun StartupScreen2() {
                     modifier = Modifier.padding(bottom = 15.sdp)
                 )
             }
+            Box(
+                    modifier = Modifier
+                        .fillMaxSize(),
+            contentAlignment = Alignment.BottomCenter
+            ) {
+            Text(
+                text = "STILL WITHOUT ACCOUNT? CREATE NOW!",
+                color = Color(0xFFFFFFFF),
+                fontFamily = FontFamily(Font(R.font.ralbold)),
+                fontSize = 10.ssp,
+                textAlign = TextAlign.Center,
+                modifier = Modifier.padding(bottom = 15.sdp)
+            )
+            Button(
+                onClick = {
+                },
+                colors = ButtonDefaults.buttonColors(
+                    containerColor = Color.Transparent
+                ),
+                modifier = Modifier
+                    .offset(y = (-30).sdp)
+
+                    .padding(start = 5.sdp, end = 20.sdp)
+                    .size(width = 150.sdp, height = 43.sdp)
+                    .background(blueGradientbutton, shape = RoundedCornerShape(30.sdp))
+                    .align(Alignment.TopCenter)
+            ) {
+                Text(
+                    text = "NEXT",
+                    fontSize = 12.ssp,
+                    fontFamily = FontFamily(Font(R.font.medium))
+                )
+                Spacer(modifier = Modifier.padding(start = 5.sdp))
+                Image(painter = painterResource(R.drawable.startupscreenicon), contentDescription = "")
+            }
+        }
         }
     }
 }

@@ -28,7 +28,7 @@ class MainActivity : ComponentActivity() {
             ROBOGURUTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                    innerPadding
-                    HomeScreen()
+                    StartupScreen4()
                 }
             }
         }
