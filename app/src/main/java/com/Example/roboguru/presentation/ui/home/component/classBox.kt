@@ -2,6 +2,7 @@ package com.Example.roboguru.presentation.ui.home.component
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -17,20 +18,33 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.text.BasicTextField
+import androidx.compose.material.DropdownMenu
+import androidx.compose.material.DropdownMenuItem
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ArrowDropDown
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.Icon
+import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
@@ -42,20 +56,22 @@ import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.window.Dialog
+import androidx.compose.ui.window.DialogProperties
 import com.Example.roboguru.R
 import com.Example.roboguru.data.getHomeSubject
+import com.Example.roboguru.presentation.ui.home.dialogcomponent.ChangeProfile
 import ir.kaaveh.sdpcompose.sdp
 import ir.kaaveh.sdpcompose.ssp
 
 @Composable
 fun ClassBox(modifier: Modifier) {
-    val blueGradient = Brush.linearGradient(
-        colors = listOf(Color(0xff63A7D4), Color(0xffF295BE))
-    )
+    var profileDialog by remember { mutableStateOf(false) }
     Box(
         modifier = modifier
             .statusBarsPadding()
@@ -125,17 +141,14 @@ fun ClassBox(modifier: Modifier) {
                     )
                 }
                 Button(
-                    onClick = { /* Add your onClick logic here */ },
+                    onClick = { profileDialog = true },
                     colors = ButtonDefaults.buttonColors(
                         containerColor = Color.Transparent
-                    ),
-                    contentPadding = PaddingValues(0.dp),
-                    modifier = Modifier
+                    ), contentPadding = PaddingValues(0.dp), modifier = Modifier
                         .background(
                             brush = Brush.verticalGradient(
                                 colors = listOf(Color(0xFCF295BE), Color(0xFF63A7D4))
-                            ),
-                            shape = RoundedCornerShape(8.dp)
+                            ), shape = RoundedCornerShape(8.dp)
                         )
                         .size(width = 80.dp, height = 35.dp)
                 ) {
@@ -181,6 +194,12 @@ fun ClassBox(modifier: Modifier) {
                 )
             }
             ClassCard(modifier = Modifier)
+
+        }
+        if (profileDialog) {
+            ChangeProfile(
+                onDismiss = { profileDialog = false }
+            )
         }
     }
 }
@@ -209,8 +228,7 @@ fun ClassCard(modifier: Modifier) {
 @Composable
 fun MainClassBox(Description: String, cardimg: Int) {
     Card(
-        modifier = Modifier
-            .size(120.sdp),// Fixed size for each card
+        modifier = Modifier.size(120.sdp),// Fixed size for each card
         shape = RoundedCornerShape(18.sdp),
         colors = CardDefaults.cardColors(containerColor = Color.Transparent)
     ) {
@@ -220,8 +238,7 @@ fun MainClassBox(Description: String, cardimg: Int) {
                 .background(color = Color(0xff6785C5))
         ) {
             Column(
-                modifier = Modifier
-                    .fillMaxSize(),
+                modifier = Modifier.fillMaxSize(),
             ) {
                 Box(
                     modifier = Modifier
@@ -231,15 +248,16 @@ fun MainClassBox(Description: String, cardimg: Int) {
                     Image(
                         painter = painterResource(id = cardimg),
                         contentDescription = null,
-                        modifier = Modifier
-                            .fillMaxSize(),
+                        modifier = Modifier.fillMaxSize(),
                         contentScale = ContentScale.Crop
                     )
                 }
                 Text(
                     text = Description,
                     modifier = Modifier
-                        .padding(top = 3.sdp, start = 4.sdp, end = 4.sdp) // Tighter padding
+                        .padding(
+                            top = 3.sdp, start = 4.sdp, end = 4.sdp
+                        ) // Tighter padding
                         .fillMaxWidth(),
                     color = Color.White,
                     lineHeight = 11.ssp,
@@ -252,3 +270,5 @@ fun MainClassBox(Description: String, cardimg: Int) {
         }
     }
 }
+
+
